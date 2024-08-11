@@ -86,7 +86,7 @@ const LatestActivities = () => {
                                         <Text>
                                             {item.action === 'CREATE'? 'created' : 'moved'}
                                         </Text>
-                                        <Text strong>{deal.title}</Text>
+                                        <Text strong>{deal?.title}</Text>
                                         <Text>{item.action === 'CREATE' ? 'in' : 'to'}</Text>
                                         <Text strong>{deal?.stage?.title}</Text>
                                     </Space>

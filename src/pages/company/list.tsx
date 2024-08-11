@@ -2,10 +2,11 @@ import CustomAvatar from "@/components/custom-avatar";
 import { Text } from "@/components/text";
 import { COMPANIES_LIST_QUERY } from "@/graphql/queries";
 import { Company } from "@/graphql/schema.types";
+import { CompaniesListQuery } from "@/graphql/types";
 import { currencyNumber } from "@/utilities";
 import { SearchOutlined } from "@ant-design/icons";
 import { CreateButton, EditButton, DeleteButton, FilterDropdown, List, useTable } from "@refinedev/antd"
-import { getDefaultFilter, useGo } from "@refinedev/core"
+import { getDefaultFilter, useGo, HttpError } from "@refinedev/core"
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { Input, Space, Table } from "antd";
 
@@ -14,7 +15,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
   const { tableProps, filters } = useTable<
     GetFieldsFromList<CompaniesListQuery>,
-    HtttpError,
+    HttpError,
     GetFieldsFromList<CompaniesListQuery>
   >({
     resource: 'companies',
@@ -26,7 +27,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
         {
           field: 'name',
           operator: 'contains',
-          value: undefined
+          value: values.name
         }
       ]
     },

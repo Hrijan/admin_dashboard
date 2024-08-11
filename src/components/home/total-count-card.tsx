@@ -3,11 +3,14 @@ import { Card, Skeleton } from "antd"
 import { Text } from "../text"
 import { Area, AreaConfig } from "@ant-design/plots"
 
+type Type = "companies" | "contacts" | "deals";
+
 type Props = {
-    resource: string,
+    resource: Type,
     isLoading: boolean,
     totalCount?: number
 }
+
 
 const DashboardTotalCountCard = ({
     resource, isLoading, totalCount
