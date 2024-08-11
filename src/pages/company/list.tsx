@@ -6,12 +6,17 @@ import { currencyNumber } from "@/utilities";
 import { SearchOutlined } from "@ant-design/icons";
 import { CreateButton, EditButton, DeleteButton, FilterDropdown, List, useTable } from "@refinedev/antd"
 import { getDefaultFilter, useGo } from "@refinedev/core"
+import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { Input, Space, Table } from "antd";
 
 export const CompanyList = ({ children }: React.PropsWithChildren) => {
 
   const go = useGo();
-  const { tableProps, filters } = useTable({
+  const { tableProps, filters } = useTable<
+    GetFieldsFromList<CompaniesListQuery>,
+    HtttpError,
+    GetFieldsFromList<CompaniesListQuery>
+  >({
     resource: 'companies',
     pagination:{
       pageSize: 12
