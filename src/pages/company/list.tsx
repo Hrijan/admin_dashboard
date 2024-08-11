@@ -81,7 +81,6 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
         }}
       >
         <Table.Column<Company>
-          dataIndex="name"
           title="Company Title"
           defaultFilteredValue={getDefaultFilter('id', filters)}
           filterIcon={<SearchOutlined />}
@@ -100,8 +99,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
           )}
         />
 
-        <Table.Column<Company> 
-          dataIndex="totalRevenue"
+        <Table.Column<Company>
           title="Open Deals Amount"
           render={(value, company) => (
             <Text>
@@ -110,8 +108,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
           )}
         />
         
-        <Table.Column<Company> 
-          dataIndex="id"
+        <Table.Column<Company>
           title="Actions"
           fixed="right"
           render={(value) => (
@@ -121,6 +118,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
             </Space>
           )}
         />
+
       </Table>
     </List>
     {children}
