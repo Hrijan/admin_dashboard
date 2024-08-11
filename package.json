@@ -48,9 +48,7 @@
     "build": "tsc && refine build",
     "start": "refine start",
     "refine": "refine",
-    "codegen": "graphql-codegen",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "codegen": "graphql-codegen"
   },
   "browserslist": {
     "production": [
